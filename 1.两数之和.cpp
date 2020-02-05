@@ -8,7 +8,7 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        
+        1
     }
 };
 // @lc code=end
