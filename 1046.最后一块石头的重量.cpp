@@ -10,12 +10,12 @@ class Solution
 public:
     int lastStoneWeight(vector<int> &stones)
     {
-        // 关键在于使用multiset，C++中set是有序的，底层是红黑树
+        // multiset is the key, it's based on Red-Black tree
         multiset<int> myset(stones.begin(), stones.end());
 
         while (myset.size() > 1)
         {
-            // prev(myset.end()) 取最后一个元素
+            // prev(myset.end()) get last pointer.
             int w1 = *prev(myset.end());
             myset.erase(prev(myset.end()));
 

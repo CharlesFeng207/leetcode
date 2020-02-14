@@ -10,7 +10,7 @@ class Solution
 public:
     void reverseString(vector<char> &s)
     {
-        // 这里一定要注意是size - 1, 表示最大索引
+        // It's s."size() - 1", means maximum index
         int half = (s.size() - 1) / 2;
         for (int i = 0; i <= half; i++)
         {

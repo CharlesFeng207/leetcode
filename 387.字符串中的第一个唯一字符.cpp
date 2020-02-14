@@ -11,11 +11,11 @@ class Solution
 public:
     int firstUniqChar(string s)
     {
-        // 记录字母出现过的次数
+        // character -> appear count
         unordered_map<char, int> map;
 
         for (auto c : s)
-            map[c] += 1; // 不可用map[c] ++
+            map[c] += 1; // don't use map[c] ++
 
         for (int i = 0; i < s.size(); i++)
         {

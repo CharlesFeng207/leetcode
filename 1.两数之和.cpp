@@ -13,7 +13,7 @@ public:
         if (nums.size() < 2)
             return {};
 
-        // key 为需求的数值，value 为伙伴的索引
+        // Requred value -> exist index
         unordered_map<int, int> map;
 
         for (int i = 0; i < nums.size(); i++)
@@ -21,7 +21,7 @@ public:
             int n = nums[i];
             if (map.find(n) != map.end())
             {
-                return {map[n], i};
+                return {map[n], i}; // Exist index come first
             }
             else
             {

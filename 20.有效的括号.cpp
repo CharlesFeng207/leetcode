@@ -18,11 +18,11 @@ public:
         {
             for (auto &v : config)
             {
-                if (v[0] == c) // 开括号判定
+                if (v[0] == c) // Process left bracket
                 {
                     st.push(c);
                 }
-                else if (v[1] == c) // 关括号判定
+                else if (v[1] == c) // Porcess right bracket
                 {
                     if (st.empty() || st.top() != v[0])
                         return false;
@@ -31,7 +31,6 @@ public:
             }
         }
 
-        // 最后看没有待处理的括号
         return st.empty();
     }
 };

@@ -8,13 +8,13 @@
 class Solution
 {
 public:
-    // 滑动窗口的思路，只用一次遍历
+    // Sliding window approach, O(n) complexity
     int lengthOfLongestSubstring(string s)
     {
-        // 记录每个字母最近出现的索引
+        // Char -> last appear index 
         unordered_map<char, int> map;
 
-        // 滑动窗口起始点
+        // Sliding window start index
         int start = 0;
 
         int curlen = 0;
@@ -24,14 +24,15 @@ public:
         {
             char t = s[i];
             if(map.find(t) == map.end())
-                map[t] = -1; // 默认为-1
+                map[t] = -1; // Default as -1
 
-            // 此字符上一次不在窗口起始点后面，说明其已经在记录中，现在遇到它了
+            // If this character has been counted
             if(start <= map[t])
             {
-                // 更新滑动窗口起始点，为上一次这个字母的索引后面
+                // Change window start index to next
                 start = map[t] + 1;
                 
+                // Recalculate current length
                 curlen = i - start + 1;
             }
             else

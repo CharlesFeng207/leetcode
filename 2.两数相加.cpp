@@ -16,31 +16,30 @@
 class Solution
 {
 public:
-    // 主要是注意链表遍历技巧和进位的问题
+    // The trick is how to go through linklist and don't forget carry.
     ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
     {
 
         ListNode *result = nullptr;
 
-        // 表示上一轮的临时节点，暂存处理next指向
+        // curNode pointer is to handle next pointer
         ListNode *curNode = nullptr;
 
-        // 进位
         int carry = 0;
 
-        // 初始化临时节点
+        // Init temp pointers
         auto t1 = l1;
         auto t2 = l2;
         while (t1 != nullptr || t2 != nullptr || carry != 0)
         {
-            // 计算当前节点的值，并生成carry，以供下一轮使用（表示进位）
+            // Figure out current node value and carry for next turn use.
             int v1 = t1 == nullptr ? 0 : t1->val;
             int v2 = t2 == nullptr ? 0 : t2->val;
             int v3 = v1 + v2 + carry;
             carry = v3 >= 10 ? 1 : 0;
             v3 = v3 % 10;
 
-            // 生成临时节点，处理节点的连接问题
+            // Make a temp node and connect each parts
             ListNode *node = new ListNode(v3);
             if (result == nullptr)
                 result = node;
@@ -50,7 +49,7 @@ public:
 
             curNode = node;
 
-            // 临时节点步进
+            // Step forward temp pointers
             if (t1 != nullptr)
                 t1 = t1->next;
             if (t2 != nullptr)

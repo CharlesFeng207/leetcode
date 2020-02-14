@@ -16,7 +16,7 @@
 class Solution
 {
 public:
-    // 如果发现已经遍历过的节点，则一定有环，而且之前记录的节点就是环的入口
+    // If meet an existed node, there must have circle, the existed one is the entry point.
     ListNode *detectCycle(ListNode *head)
     {
         unordered_set<ListNode *> set;
